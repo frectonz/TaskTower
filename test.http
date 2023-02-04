@@ -1,0 +1,10 @@
+POST {{url}}/token
+Authorization: Basic {{username}} {{password}}
+
+> {%
+    client.global.set("auth_token", response.body)
+%}
+
+###
+GET {{url}}/hello
+Authorization: Bearer {{auth_token}}
