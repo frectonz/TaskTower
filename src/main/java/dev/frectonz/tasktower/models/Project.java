@@ -1,19 +1,23 @@
 package dev.frectonz.tasktower.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 public class Project {
     @Id
     private String id;
     private String name;
     private String description;
+    @DocumentReference
+    private User owner;
 
     public Project() {
     }
 
-    public Project(String name, String description) {
+    public Project(String name, String description, User owner) {
         this.name = name;
         this.description = description;
+        this.owner = owner;
     }
 
     public String getName() {
@@ -40,12 +44,21 @@ public class Project {
         this.description = description;
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", owner='" + owner + '\'' +
                 '}';
     }
 }

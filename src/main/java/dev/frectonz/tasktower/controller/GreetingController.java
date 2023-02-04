@@ -7,7 +7,7 @@ import java.security.Principal;
 
 @RestController
 public class GreetingController {
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String greeting(Principal principal) {
         return "Hello, " + principal.getName();
     }

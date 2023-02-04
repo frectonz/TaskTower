@@ -1,11 +1,13 @@
 package dev.frectonz.tasktower.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 
 public class User {
     @Id
     private String id;
     private String username;
+    @JsonIgnore
     private String password;
 
     public User() {

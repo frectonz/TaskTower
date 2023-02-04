@@ -29,8 +29,9 @@ public class TaskTowerApplication {
             users.deleteAll();
             projects.deleteAll();
 
-            users.save(new User("frectonz", encoder.encode("password")));
-            projects.save(new Project("Project 1", "Description 1"));
+            User user = new User("frectonz", encoder.encode("password"));
+            users.save(user);
+            projects.save(new Project("Project 1", "Description 1", user));
         };
     }
 }

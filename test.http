@@ -7,13 +7,21 @@ Authorization: Basic {{username}} {{password}}
 %}
 
 ### Say hello
-GET {{url}}/hello
+GET {{url}}/
 Authorization: Bearer {{auth_token}}
 
 ### Get projects
-GET {{url}}/projects
+GET {{url}}/api/projects
 Authorization: Bearer {{auth_token}}
 
+### Create project
+POST {{url}}/api/projects
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+}
+
 ### Root
-GET {{url}}/
+GET {{url}}/api/
 Authorization: Bearer {{auth_token}}
