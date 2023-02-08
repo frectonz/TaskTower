@@ -3,7 +3,7 @@ POST {{url}}/token
 Authorization: Basic {{username}} {{password}}
 
 > {%
-    client.global.set("auth_token", response.body)
+    client.global.set("auth_token", response.body);
 %}
 
 ### Say hello
@@ -12,6 +12,18 @@ Authorization: Bearer {{auth_token}}
 
 ### Get projects
 GET {{url}}/api/projects
+Authorization: Bearer {{auth_token}}
+
+> {%
+    client.global.set(
+        "project_url",
+        response.body["_embedded"]["projects"][0]["_links"]["self"]["href"]
+    );
+%}
+
+
+### Get Project
+GET {{project_url}}
 Authorization: Bearer {{auth_token}}
 
 ### Create project
